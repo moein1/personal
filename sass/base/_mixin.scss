@@ -1,0 +1,45 @@
+@mixin flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+@mixin small-bold {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+@mixin icon {
+    font-size: 3rem;
+    color: lighten($accent-color, 20%);
+    background: lighten($gray-color, 30%);
+    padding: 20px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    margin-top: 30px;
+}
+
+@mixin skill($size, $color) {
+    width: $size;
+    height: $size;
+    background: $color;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+@mixin animation {
+    animation: smack 1000ms linear both;
+  }
+
+  @mixin header{
+      @include small-bold;
+      color:lighten($accent-color, 30%);
+      margin-bottom: 3%;
+  }
+
+  @mixin scale{
+      animation-name: scale;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+  }

@@ -1,0 +1,123 @@
+#work {
+    text-align: center;
+    margin: 4% auto;
+    h3 {
+        @include header;
+    }
+    position: relative;
+    #thumb-section {
+        position: relative;
+       //animation-name: fade-out;
+        animation-duration: 1000ms;
+        animation-fill-mode: forwards;
+        transition: display ease 500ms;
+        max-width: 900px;
+        margin: 3% auto;
+        @include flex;
+        flex-wrap: wrap;
+        perspective:300px;
+        .thumb-item {
+            perspective:300px;
+            overflow: hidden;
+            @media screen and (max-width: 800px) {
+                flex-basis: 48%;
+                padding-top: 30%;
+            }
+            @media screen and (max-width:550px) {
+                flex-basis: 90%;
+                padding-top: 60%;
+            }
+            position: relative;
+            @for $i from 1 through 8 {
+                &:nth-child(#{$i}) {
+                    background: url(../../img/work#{$i}.jpeg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                }
+            }
+            flex-basis: 24%;
+            padding-top: 20%;
+            margin-bottom: 1%;
+           
+            &:hover .thumb-overlay {
+                top: 0;
+                // animation-name: work;
+                // animation-duration: 1s;
+                // animation-timing-function: ease;
+                // animation-fill-mode: forwards;
+                @include animation;
+                opacity: .5;
+                
+               
+            }
+            .thumb-overlay {
+                transform-origin:left;
+                background: $accent-color;
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 100%;
+                left: 0;
+                @include flex;
+                align-items: center;
+                color: $white-color;
+                opacity: 0;                
+                transition: opacity ease-in 500ms;
+                p {
+                    font-size: 24px;
+                    text-transform: uppercase;
+                    font-weight: 300px;
+                    
+                }
+            }
+        }
+    }
+
+    #work-section{
+        display: none;
+        position: relative;
+        animation-duration: 500ms;
+        text-align: center;
+        margin: 3% auto;
+        padding-bottom: 4%;
+        max-width: 700px;
+        // for centerize the element that is abaolute position first solution
+        left: 0;
+        right: 0;
+        //we can also use translate and left as we know 
+        //left: 50%;
+        //transform: translate(-50% , 0);
+        top: 40px;
+        h3{
+            @include small-bold;
+            font-size: 24px;
+            color: $accent-color;
+            display: inline-block;
+        }
+        i{
+            cursor: pointer;
+            display: inline-block;
+            font-size: 22px;
+            color: $accent-color;
+            margin-right: 5px;
+        }
+        #work-body{
+           background-size: cover;
+           background-position: center center;
+           background-repeat: no-repeat;
+           max-width: 650px;
+           padding-top: 60%;
+        }
+
+        .work-summary{
+            margin: 4%;
+            p{
+                font-size: 1.4rem;
+                line-height: 1.4;
+                color: $accent-color;
+            }
+        }
+    }
+}

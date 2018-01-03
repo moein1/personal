@@ -1,0 +1,56 @@
+.about {
+    margin: 3% auto;
+    text-align: center;
+    h3 {
+        @include header;
+    }
+    .face-lookup {
+        @include flex;
+        max-width: 700px;
+        margin: 0 auto 4% auto;
+        .mouse {
+            order: 2;
+            @include icon;
+        }
+        .pencil {
+            order: 1;
+            @include icon;
+        }
+        .monitor {
+            order: 4;
+            @include icon;
+        }
+        .video {
+            order: 5;
+            @include icon;
+        }
+        .my-face {
+            order: 3;
+            img {
+                width: 200px;
+                border-radius: 50%;
+            }
+        }
+    }
+    .about-description {
+        max-width: 500px;
+        margin: 3% auto;
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: $gray-color;
+        }
+    }
+}
+
+@media screen and (max-width:650px) {
+    .about {
+        .face-lookup {
+            flex-wrap: wrap;
+            .my-face {
+                flex-basis: 100%;
+                order: 1;
+            }
+        }
+    }
+}

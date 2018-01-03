@@ -1,0 +1,62 @@
+.skill {
+    h3{
+        @include header;
+    }
+    max-width: 700px;
+    @include flex;
+    margin: 4% auto;
+    flex-wrap: wrap;
+    text-align: center;
+    .skill-item {
+        @media screen and (max-width: 700px) {
+            h3{
+                font-size: .9rem !important;
+
+            }
+        }
+        flex-basis: 50%;
+        margin-bottom: 4%;
+        margin-left: 0;
+        @for $i from 1 through 8 {
+            &.skill-#{$i} span {
+                &:nth-child(n+#{$i+2}) {
+                    background: $gray-color;
+                }
+            }
+        }
+        h3 {
+            @include small-bold;
+            color: $gray-color;
+            margin-bottom: 2%;
+        }
+        span {
+            @include skill(20px, $accent-color);
+            position: relative;
+            &:after {
+                @include skill(10px, $white-color);
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+            @media screen and (max-width:700px) {
+                @include skill(16px, $accent-color);
+                &:after {
+                    @include skill(8px, $white-color);
+                    content: '';
+                    top: 4px;
+                    left: 4px;
+                }
+            }
+            @media screen and (max-width:550px) {
+                @include skill(12px ,$accent-color);
+                &:after{
+                    @include skill(6px , $white-color);
+                    content: '';
+                    top: 3px;
+                    left: 3px;
+                }
+            }
+        }
+    }
+}
